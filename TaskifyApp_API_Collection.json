@@ -1,0 +1,226 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "TaskifyApp - API REST",
+  "dateExport": "2025-11-06",
+  "version": "1.1",
+  "folders": [
+    {
+      "id": "1",
+      "name": "Tareas",
+      "requests": [
+        {
+          "id": "1-1",
+          "name": "GET - Listar todas las tareas",
+          "method": "GET",
+          "url": "http://localhost:8080/api/tareas",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            }
+          ],
+          "body": "",
+          "tests": ""
+        },
+        {
+          "id": "1-2",
+          "name": "GET - Obtener tarea por ID",
+          "method": "GET",
+          "url": "http://localhost:8080/api/tareas/1",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            }
+          ],
+          "body": "",
+          "tests": ""
+        },
+        {
+          "id": "1-3",
+          "name": "POST - Crear nueva tarea",
+          "method": "POST",
+          "url": "http://localhost:8080/api/tareas",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"titulo\": \"Estudiar Dart y Flutter\",\n  \"descripcion\": \"Aprender los conceptos fundamentales de Dart y Flutter para desarrollo móvil\",\n  \"fechaEntrega\": \"2025-11-20\",\n  \"estado\": \"PENDIENTE\"\n}"
+          },
+          "tests": ""
+        },
+        {
+          "id": "1-4",
+          "name": "POST - Crear tarea (Ejemplo 2)",
+          "method": "POST",
+          "url": "http://localhost:8080/api/tareas",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"titulo\": \"Implementar Provider Pattern\",\n  \"descripcion\": \"Implementar manejo de estado con Provider en la aplicación Flutter\",\n  \"fechaEntrega\": \"2025-11-15\",\n  \"estado\": \"PENDIENTE\"\n}"
+          },
+          "tests": ""
+        },
+        {
+          "id": "1-5",
+          "name": "PUT - Actualizar tarea",
+          "method": "PUT",
+          "url": "http://localhost:8080/api/tareas/1",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"titulo\": \"Estudiar Dart y Flutter - ACTUALIZADO\",\n  \"descripcion\": \"Aprender los conceptos fundamentales de Dart, Flutter, widgets y state management\",\n  \"fechaEntrega\": \"2025-11-25\",\n  \"estado\": \"COMPLETADA\"\n}"
+          },
+          "tests": ""
+        },
+        {
+          "id": "1-6",
+          "name": "DELETE - Eliminar tarea",
+          "method": "DELETE",
+          "url": "http://localhost:8080/api/tareas/1",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            }
+          ],
+          "body": "",
+          "tests": ""
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Pruebas de Error",
+      "requests": [
+        {
+          "id": "2-1",
+          "name": "ERROR - Tarea no encontrada (404)",
+          "method": "GET",
+          "url": "http://localhost:8080/api/tareas/99999",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            }
+          ],
+          "body": "",
+          "tests": ""
+        },
+        {
+          "id": "2-2",
+          "name": "ERROR - Título vacío",
+          "method": "POST",
+          "url": "http://localhost:8080/api/tareas",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"titulo\": \"\",\n  \"descripcion\": \"Esta tarea no tiene título\",\n  \"fechaEntrega\": \"2025-11-20\",\n  \"estado\": \"PENDIENTE\"\n}"
+          },
+          "tests": ""
+        },
+        {
+          "id": "2-3",
+          "name": "ERROR - Descripción vacía",
+          "method": "POST",
+          "url": "http://localhost:8080/api/tareas",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"titulo\": \"Tarea sin descripción\",\n  \"descripcion\": \"\",\n  \"fechaEntrega\": \"2025-11-20\",\n  \"estado\": \"PENDIENTE\"\n}"
+          },
+          "tests": ""
+        },
+        {
+          "id": "2-4",
+          "name": "ERROR - Fecha inválida",
+          "method": "POST",
+          "url": "http://localhost:8080/api/tareas",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"titulo\": \"Tarea con fecha inválida\",\n  \"descripcion\": \"Esta tarea tiene una fecha en formato incorrecto\",\n  \"fechaEntrega\": \"20/11/2025\",\n  \"estado\": \"PENDIENTE\"\n}"
+          },
+          "tests": ""
+        },
+        {
+          "id": "2-5",
+          "name": "ERROR - Estado inválido",
+          "method": "POST",
+          "url": "http://localhost:8080/api/tareas",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "enabled": true
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"titulo\": \"Tarea con estado inválido\",\n  \"descripcion\": \"Esta tarea tiene un estado que no existe\",\n  \"fechaEntrega\": \"2025-11-20\",\n  \"estado\": \"INVALIDO\"\n}"
+          },
+          "tests": ""
+        }
+      ]
+    }
+  ],
+  "variables": [
+    {
+      "name": "baseUrl",
+      "value": "http://localhost:8080/api/tareas",
+      "type": "string"
+    },
+    {
+      "name": "tareaId",
+      "value": "1",
+      "type": "string"
+    }
+  ],
+  "notes": {
+    "general": "Colección de ejemplos para probar la API REST de TaskifyApp",
+    "autenticacion": "No se implementó autenticación en esta versión",
+    "estados": "Los estados válidos son: PENDIENTE, COMPLETADA",
+    "fechas": "Usar formato: yyyy-MM-dd",
+    "baseUrl": "Para Android emulator: http://10.0.2.2:8080/api/tareas",
+    "baseUrl2": "Para dispositivo físico: http://{IP_LOCAL}:8080/api/tareas"
+  }
+}
